@@ -725,11 +725,7 @@ double no_zero_oned(no_random *inRD)
 long double no_zero_oneld(no_random *inRD)
 {
 	return no_threshhold_ldouble_zo(
-		#ifndef NO_ONE_NO_LONG_LONG
 		((long double)no_random_ull(inRD) ) / ((long double)ULLONG_MAX)
-		#else
-		((long double)no_random_ulong(inRD) ) / ((long double)ULONG_MAX)
-		#endif
 	);
 }
 #endif
@@ -755,11 +751,7 @@ double no_neg_one_oned(no_random *inRD)
 #ifndef NO_ONE_NO_LONG_DOUBLE
 long double no_neg_one_oneld(no_random *inRD)
 {
-	#ifndef NO_ONE_NO_LONG_LONG
 	long double out = ((long double)no_random_ull(inRD) ) / ((long double)ULLONG_MAX);
-	#else
-	long double out = ((long double)no_random_ulong(inRD) ) / ((long double)ULONG_MAX);
-	#endif
 	if( no_random_bool(inRD) ) out = out * -1.0L;
 	return no_threshhold_ldouble_noo(out);
 }
